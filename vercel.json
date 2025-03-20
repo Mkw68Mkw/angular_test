@@ -1,0 +1,26 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/.*",
+        "dest": "/index.html",
+        "headers": {
+          "Cache-Control": "public, max-age=0, must-revalidate",
+          "X-Frame-Options": "DENY"
+        }
+      },
+      {
+        "src": "/about",
+        "status": 308,
+        "headers": {
+          "Location": "/"
+        }
+      }
+    ],
+    "builds": [
+      {
+        "src": "dist/angular-test/browser/**",
+        "use": "@vercel/static"
+      }
+    ]
+  }
